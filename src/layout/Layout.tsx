@@ -1,10 +1,12 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 
 function Layout() {
   return (
     <div style={{}}>
-      <aside></aside>
+      <aside>
+        <NavLink to={"/search"}>Search</NavLink>
+      </aside>
 
       <Outlet />
     </div>

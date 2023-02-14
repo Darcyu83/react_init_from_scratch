@@ -4,7 +4,8 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
   name: "custom-webpack-config",
-  mode: "development", // production, development
+  // mode: "development", // production, development
+  mode: process.env.NODE_ENV, // production, development
   devtool: "eval",
   entry: path.join(__dirname, "src/index.js"),
   output: {
@@ -20,7 +21,11 @@ module.exports = {
         use: {
           loader: "babel-loader",
           options: {
-            presets: ["@babel/preset-env", "@babel/preset-react"],
+            presets: [
+              "@babel/preset-env",
+              "@babel/preset-react",
+              ["@babel/preset-typescript", { allowNamespaces: true }],
+            ],
           },
         },
       },

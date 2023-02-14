@@ -16,6 +16,7 @@ function Home() {
   return (
     <div style={{}}>
       <Title>Lorem ipsum dolor sit amet.</Title>
+      <span>NODE_ENV: {process.env.NODE_ENV}</span>
       <Radio />
     </div>
   );

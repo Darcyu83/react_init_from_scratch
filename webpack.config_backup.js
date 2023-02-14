@@ -47,7 +47,11 @@ module.exports = {
           options: {
             // preset-env for transpiling ES2015+ syntax
             // prset-react for transpiling react code
-            presets: ["@babel/preset-env", "@babel/preset-react"],
+            presets: [
+              "@babel/preset-env",
+              "@babel/preset-react",
+              ["@babel/preset-typescript", { allowNamespaces: true }],
+            ],
           },
         },
       },
