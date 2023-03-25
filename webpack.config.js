@@ -67,7 +67,7 @@ module.exports = {
         test: /\.(png|jpg|jpeg|gif)$/i,
         type: "asset/resource",
         generator: {
-          publicPath: "https://cdn/assets/",
+          publicPath: "http://localhost:3000/assets/",
           outputPath: "assets/",
         },
       },

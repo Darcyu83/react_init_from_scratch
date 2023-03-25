@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import React, { useEffect, useRef } from "react";
 import Radio from "../components/Radio";
 import IconMenu from "../assets/isvg.svg";
-
+import google from "../assets/google.png";
 const Title = styled.span`
   display: inline-block;
   padding: 1rem;
@@ -49,6 +49,9 @@ function Home() {
       <Radio />
       <ScrlContainer ref={scrlContainer}>
         <IconMenu fill={"red"} width={24} />
+        <img src={require("../assets/cloud.png")} alt="cloud" />
+        <img src={google} alt="google" />
+
         {items.map((itm, idx) => {
           return (
             <ScrlItem
