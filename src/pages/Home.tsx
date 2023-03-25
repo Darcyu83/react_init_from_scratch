@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import React, { useEffect, useRef } from "react";
 import Radio from "../components/Radio";
+import IconMenu from "../assets/isvg.svg";
 
 const Title = styled.span`
   display: inline-block;
@@ -47,6 +48,7 @@ function Home() {
       <span>NODE_ENV: {process.env.NODE_ENV}</span>
       <Radio />
       <ScrlContainer ref={scrlContainer}>
+        <IconMenu fill={"red"} width={24} />
         {items.map((itm, idx) => {
           return (
             <ScrlItem

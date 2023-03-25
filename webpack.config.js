@@ -1,11 +1,12 @@
 const path = require("path");
+// const svgToMiniDataURI = require("mini-svg-data-uri");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   // mode: "development",
   mode: process.env.NODE_ENV,
-  devtool: "eval",
+  devtool: "eval-cheap-source-map",
   // Webpack :
   // is a tool which can take all the files we have written
   // and combine / bundle them into a single.js file
@@ -19,6 +20,11 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     clean: true,
   },
+  performance: {
+    // hints: "error",
+    // maxAssetSize: 51 * 1024,
+    // maxEntrypointSize: 250 * 1024,
+  },
 
   // Babel
   // is a transpiler so we need to tell it what to transpile.
@@ -29,6 +35,10 @@ module.exports = {
   //
   module: {
     rules: [
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
+      },
       {
         // test: /\.?js$/,
         test: /\.(js|jsx|ts|tsx)/,
@@ -52,9 +62,38 @@ module.exports = {
           },
         },
       },
+
       {
-        test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
+        test: /\.(png|jpg|jpeg|gif)$/i,
+        type: "asset/resource",
+        generator: {
+          publicPath: "https://cdn/assets/",
+          outputPath: "assets/",
+        },
+      },
+
+      // {
+      //   test: /\.svg/,
+      //   type: "asset/inline",
+      // generator: {
+      //   dataUrl: (content) => {
+      //     content = content.toString();
+      //     return svgToMiniDataURI(content);
+      //   },
+      // },
+      // },
+
+      // {
+      //   test: /\.svg$/i,
+      //   type: "asset",
+      //   resourceQuery: /url/, // *.svg?url
+      // },
+
+      {
+        test: /\.svg$/i,
+        issuer: /\.[jt]sx?$/,
+        // resourceQuery: { not: [/url/] }, // exclude react component if *.svg?url
+        use: ["@svgr/webpack"],
       },
     ],
   },
