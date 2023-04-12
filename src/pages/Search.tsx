@@ -12,17 +12,19 @@ function Search() {
   };
 
   return (
-    <form onSubmit={(e) => onSubmit(e)}>
-      <label>
-        <span>Name</span>
-        <input name="name" />
-      </label>
-      <label>
-        <span>Birth</span>
-        <input name="birth" />
-      </label>
-      <input type="submit" />
-    </form>
+    <>
+      <form onSubmit={(e) => onSubmit(e)}>
+        <label>
+          <span>Name</span>
+          <input name="name" />
+        </label>
+        <label>
+          <span>Birth</span>
+          <input name="birth" />
+        </label>
+        <input type="submit" />
+      </form>
+    </>
   );
 }
 
