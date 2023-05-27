@@ -10,14 +10,18 @@ function Layout() {
         height: "90vh",
         display: "grid",
         gridTemplateRows: "50px 1fr",
+        gridTemplateColumns: "100%",
         border: " 1px solid red",
       }}
     >
-      <aside>
+      <aside style={{ border: "2px solid purple" }}>
         <NavLink to={"/search"}>Search</NavLink>
+        <NavLink to={"/pdf"}>PDF</NavLink>
       </aside>
 
-      <Outlet />
+      <div style={{ width: "100%" }}>
+        <Outlet />
+      </div>
     </div>
   );
 }

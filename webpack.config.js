@@ -7,6 +7,13 @@ module.exports = {
   // mode: "development",
   mode: process.env.NODE_ENV,
   devtool: "eval-cheap-source-map",
+
+  // 개발서버 핫 리로딩
+  devServer: {
+    static: "./dist",
+    hot: true,
+  },
+
   // Webpack :
   // is a tool which can take all the files we have written
   // and combine / bundle them into a single.js file
@@ -66,10 +73,10 @@ module.exports = {
       {
         test: /\.(png|jpg|jpeg|gif)$/i,
         type: "asset/resource",
-        generator: {
-          publicPath: "http://localhost:3000/assets/",
-          outputPath: "assets/",
-        },
+        // generator: {
+        //   publicPath: "http://localhost:3000/assets/",
+        //   outputPath: "assets/",
+        // },
       },
 
       // {

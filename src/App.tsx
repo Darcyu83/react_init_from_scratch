@@ -10,6 +10,9 @@ import Layout from "./layout/Layout";
 import Home from "./pages/Home";
 import Search from "./pages/Search";
 import SearchResult from "./pages/SearchResult";
+import PDF from "./pages/PDF";
+import Canvas from "./pages/Canvas";
+import ImgUploaderCarousel from "./pages/ImgUploaderCarousel";
 
 const router = createBrowserRouter([
   {
@@ -19,7 +22,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <SearchResult />,
+        element: <ImgUploaderCarousel />,
         // element: <Home />,
       },
       {
@@ -29,6 +32,10 @@ const router = createBrowserRouter([
       {
         path: "result",
         element: <SearchResult />,
+      },
+      {
+        path: "pdf",
+        element: <PDF />,
       },
     ],
   },
