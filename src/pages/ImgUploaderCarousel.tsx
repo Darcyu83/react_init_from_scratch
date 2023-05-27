@@ -167,20 +167,28 @@ function ImgUploaderCarousel(props: IProps) {
         })}
       </CarouselContainer>
 
-      {[
-        ...Array(
-          Math.floor(imgDataUrls.length / 4) +
-            Math.ceil((imgDataUrls.length % 4) / 10000)
-        ),
-      ].map((_, index) => (
-        <div
-          onClick={() => {
-            scrollRef.current[index]?.scrollIntoView({ behavior: "smooth" });
-          }}
-        >
-          {index}
-        </div>
-      ))}
+      <div style={{ display: "flex", gap: 8 }}>
+        {[
+          ...Array(
+            Math.floor(imgDataUrls.length / 4) +
+              Math.ceil((imgDataUrls.length % 4) / 10000)
+          ),
+        ].map((_, index) => (
+          <div
+            style={{
+              height: 20,
+              padding: 20,
+              cursor: "pointer",
+              border: "1px solid red",
+            }}
+            onClick={() => {
+              scrollRef.current[index]?.scrollIntoView({ behavior: "smooth" });
+            }}
+          >
+            {index}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
